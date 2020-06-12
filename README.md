@@ -10,6 +10,13 @@ SearchFilter: contains options to filter for parking garage
 ParkingGarageList: contains a list of parking garages
 ParkingGarageItem: contains parking garage information
 
+## Data
+
+SearchPlace: dynamic data that changes over time (in this case user input)
+SearchFilter: dynamic data that changes over time (in this case user input)
+ParkingGarageList: static data from external source (json)
+ParkingGarageItem: static data from external source (json)
+
 ## Challenge
 
 The challenge is to build with React class components above components with a correct component communication.
