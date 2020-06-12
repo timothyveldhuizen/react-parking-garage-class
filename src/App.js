@@ -1,10 +1,13 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import ParkingGarages from './components/ParkingGarages';
 
-function App() {
-  return ( <p>Hello</p>
-  );
+class App extends Component {
+  render() {
+    return ( 
+      <ParkingGarages />
+    );
+  }
 }
 
 export default App;
