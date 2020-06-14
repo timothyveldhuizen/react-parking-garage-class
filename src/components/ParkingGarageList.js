@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import ParkingGarageItem from './ParkingGarageItem';
-import dataParkingGarageList from '../data/ParkingGarageList';
 
-class ParkingGarageList extends Component {
-    constructor() {
-        super();
-        this.state = {parkingGarageList: dataParkingGarageList};
-    }
-
-    
+class ParkingGarageList extends Component {   
     render() {
-        const listItems = this.state.parkingGarageList.map(
-            parkingGarageItem => <ParkingGarageItem key={parkingGarageItem.toString()} item={parkingGarageItem} />
+        const place = this.props.place;
+        const listItems = this.props.list
+            .filter(item => item.place.includes(place))
+            .map(
+                parkingGarageItem => 
+                <ParkingGarageItem key={parkingGarageItem.toString()} item={parkingGarageItem} />
             );
 
         return ( 

@@ -4,8 +4,8 @@ class SearchFilter extends Component {
     render() {
       return ( 
         <div>
-            <label for="filter">Parking Garage filter</label>
-            <input type="checkbox" id="filter" />
+            <label for="searchfilter">Search filter</label>
+            <input type="checkbox" id="searchfilter" />
         </div>
       );
     }
