@@ -4,7 +4,7 @@ import ParkingGarages from './components/ParkingGarages';
 
 class App extends Component {
   render() {
-    return ( 
+    return (
       <ParkingGarages />
     );
   }

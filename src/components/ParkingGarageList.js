@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import ParkingGarageItem from './ParkingGarageItem';
 
-class ParkingGarageList extends Component {   
+class ParkingGarageList extends Component {
     render() {
         const place = this.props.place;
         const listItems = this.props.list
-            .filter(item => item.place.includes(place))
-            .map(
-                parkingGarageItem => 
-                <ParkingGarageItem key={parkingGarageItem.toString()} item={parkingGarageItem} />
+            .filter(searchFilter)
+            .map(item => {
+                const listKey = item.parkingaddressreferencetype + item.parkingaddressreference + item.parkingaddresstype;
+                return <ParkingGarageItem key={listKey} item={item} />
+            }
             );
 
-        return ( 
+        function searchFilter(item) {
+            return item.place ? item.place.toLowerCase().includes(place.toLowerCase()) : item.place;
+        }
+
+        return (
             <>
-                <p>Parking Garage list feature</p>
+                <p>Parking Garages</p>
+                <span>Number of results {listItems.length}</span>
                 {listItems}
             </>
         );
     }
-  }
-  
-  export default ParkingGarageList;
+}
+
+export default ParkingGarageList;

@@ -11,28 +11,27 @@ class ParkingGarages extends Component {
       searchPlace: '',
       searchFilter: '',
     }
-    
+
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
-}
-
-handleSearchInputChange(query) {
-  this.setState({
-    searchPlace: query,
-  })
-  console.log(this.state);
-}
-
-  render() {  
-    return ( 
-      <>
-          <h1>Parking Garages</h1>
-          <SearchPlace searchInput={this.state.searchPlace} onSearchInputChange={this.handleSearchInputChange}/>
-          <SearchFilter />
-          <ParkingGarageList place={this.state.searchPlace} list={dataParkingGarageList}/>
-        </>
-      );
-    }
   }
-  
-  
-  export default ParkingGarages;
+
+  handleSearchInputChange(query) {
+    this.setState({
+      searchPlace: query,
+    })
+  }
+
+  render() {
+    return (
+      <>
+        <h1>Parking Garages</h1>
+        <SearchPlace searchInput={this.state.searchPlace} onSearchInputChange={this.handleSearchInputChange} />
+        <SearchFilter />
+        <ParkingGarageList place={this.state.searchPlace} list={dataParkingGarageList} />
+      </>
+    );
+  }
+}
+
+
+export default ParkingGarages;

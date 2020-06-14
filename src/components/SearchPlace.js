@@ -11,13 +11,13 @@ class SearchPlace extends Component {
     }
 
     render() {
-      return ( 
-          <div>
-              <label for="searchplace">Search place</label>
-              <input type="text" id="searchplace" value={this.props.searchText} onChange={this.handleSearchTextChange} />
-          </div>
-      );
+        return (
+            <div>
+                <label for="searchplace">Search place</label>
+                <input type="text" id="searchplace" value={this.props.searchText} onChange={this.handleSearchTextChange} />
+            </div>
+        );
     }
-  }
-  
-  export default SearchPlace;
+}
+
+export default SearchPlace;
