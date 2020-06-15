@@ -5,14 +5,14 @@ class ParkingGarageList extends Component {
     render() {
         const place = this.props.place;
         const listItems = this.props.list
-            .filter(searchFilter)
+            .filter(search)
             .map(item => {
                 const listKey = item.parkingaddressreferencetype + item.parkingaddressreference + item.parkingaddresstype;
                 return <ParkingGarageItem key={listKey} item={item} />
             }
             );
 
-        function searchFilter(item) {
+        function search(item) {
             return item.place ? item.place.toLowerCase().includes(place.toLowerCase()) : item.place;
         }
 

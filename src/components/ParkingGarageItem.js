@@ -7,8 +7,7 @@ class ParkingGarageItem extends Component {
         <h1>{this.props.item.streetname} {this.props.item.housenumber}</h1>
         <h2>{this.props.item.zipcode} {this.props.item.place}</h2>
         <h3>{this.props.item.province}</h3>
-        <p>{this.props.item.parkingaddressreferencetype}</p>
-        <p>{this.props.item.parkingaddressreference}</p>
+        <p>{this.props.item.parkingaddresstype}</p>
       </div>
     );
   }

@@ -13,6 +13,7 @@ class ParkingGarages extends Component {
     }
 
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+    this.handleSearchFilterChange = this.handleSearchFilterChange.bind(this);
   }
 
   handleSearchInputChange(query) {
@@ -21,12 +22,19 @@ class ParkingGarages extends Component {
     })
   }
 
+  handleSearchFilterChange(filter) {
+    this.setState({
+      searchFilter: filter,
+    })
+    console.log(this.state)
+  }
+
   render() {
     return (
       <>
         <h1>Parking Garages</h1>
         <SearchPlace searchInput={this.state.searchPlace} onSearchInputChange={this.handleSearchInputChange} />
-        <SearchFilter />
+        <SearchFilter searchFilter={this.state.searchFilter} onSearchFilterChange={this.handleSearchFilterChange}/>
         <ParkingGarageList place={this.state.searchPlace} list={dataParkingGarageList} />
       </>
     );
