@@ -4,16 +4,22 @@ import ParkingGarageItem from './ParkingGarageItem';
 class ParkingGarageList extends Component {
     render() {
         const place = this.props.place;
+        const filter = this.props.filter;
         const listItems = this.props.list
-            .filter(search)
+            .filter(searchPlace)
+            .filter(searchFilter)
             .map(item => {
-                const listKey = item.parkingaddressreferencetype + item.parkingaddressreference + item.parkingaddresstype;
-                return <ParkingGarageItem key={listKey} item={item} />
+                    const listKey = item.parkingaddressreferencetype + item.parkingaddressreference + item.parkingaddresstype;
+                    return <ParkingGarageItem key={listKey} item={item} />
             }
             );
 
-        function search(item) {
-            return item.place ? item.place.toLowerCase().includes(place.toLowerCase()) : item.place;
+        function searchPlace(item) {
+            return item.place ? item.place.toLowerCase().includes(place.toLowerCase()) : false;
+        }
+
+        function searchFilter(item) {
+            return Object.values(filter).indexOf(true) > -1 ? filter[item.parkingaddresstype] : false;
         }
 
         return (

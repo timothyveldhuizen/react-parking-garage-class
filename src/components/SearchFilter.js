@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+const parkingType = [
+  { A: 'Administratief adres' },
+  { P: 'Postadres' },
+  { F: 'Feitelijk adres' },
+];
 class SearchFilter extends Component {
   constructor(props) {
     super(props)
@@ -7,22 +12,21 @@ class SearchFilter extends Component {
   }
 
   handleParkingTypeFilterChange(e) {
-    this.props.onSearchFilterChange(e.target.value);
-    console.log(e.target.value)
+    this.props.onSearchFilterChange(e.target.value, e.target.checked);
+  }
+
+  isChecked(item) {
+    return this.props.searchFilter[item] ? this.props.searchFilter[item] : false;
   }
 
   render() {
-    const parkingType = [
-      { A: 'Administratief adres' },
-      { P: 'Postadres' },
-      { F: 'Feitelijk adres' },
-    ];
-
     const itemTypes = parkingType.map(
       item => {
+        const keys = Object.keys(item);
+        const values = Object.values(item);
         return <>
-          <label for={`searchfilter-${Object.keys(item)}`}>{Object.values(item)}</label>
-          <input type="checkbox" id={`searchfilter-${Object.keys(item)}`} value={Object.keys(item)} onChange={this.handleParkingTypeFilterChange} />
+          <label for={`searchfilter-${keys}`}>{values}</label>
+          <input type="checkbox" id={`searchfilter-${keys}`} value={keys} checked={this.isChecked(keys)} onChange={this.handleParkingTypeFilterChange} />
         </>
       }
     );
